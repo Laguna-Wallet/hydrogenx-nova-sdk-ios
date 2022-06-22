@@ -1,16 +1,6 @@
 import SoraFoundation
 import BigInt
 
-protocol MoonbeamTermsViewProtocol: ControllerBackedProtocol, LoadableViewProtocol, Localizable {
-    func didReceiveFee(viewModel: LocalizableResource<BalanceViewModelProtocol>)
-}
-
-protocol MoonbeamTermsPresenterProtocol: AnyObject {
-    func setup()
-    func handleAction()
-    func handleLearnTerms()
-}
-
 protocol MoonbeamTermsInteractorInputProtocol: AnyObject {
     var termsURL: URL { get }
     func setup()
@@ -24,17 +14,4 @@ protocol MoonbeamTermsInteractorOutputProtocol: AnyObject {
     func didReceiveVerifyRemark(result: Result<Bool, Error>)
     func didReceiveAccountInfo(result: Result<AccountInfo?, Error>)
     func didReceiveMinimumBalance(result: Result<BigUInt, Error>)
-}
-
-protocol MoonbeamTermsWireframeProtocol: WebPresentable,
-    StakingErrorPresentable,
-    AlertPresentable,
-    ErrorPresentable,
-    CrowdloanErrorPresentable {
-    func showContributionSetup(
-        paraId: ParaId,
-        moonbeamService: MoonbeamBonusServiceProtocol,
-        state: CrowdloanSharedState,
-        from view: ControllerBackedProtocol?
-    )
 }

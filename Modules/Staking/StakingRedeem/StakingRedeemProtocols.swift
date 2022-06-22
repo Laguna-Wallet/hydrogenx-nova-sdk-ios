@@ -2,18 +2,6 @@ import Foundation
 import SoraFoundation
 import BigInt
 
-protocol StakingRedeemViewProtocol: ControllerBackedProtocol, Localizable, LoadableViewProtocol {
-    func didReceiveConfirmation(viewModel: StakingRedeemViewModel)
-    func didReceiveAmount(viewModel: LocalizableResource<BalanceViewModelProtocol>)
-    func didReceiveFee(viewModel: LocalizableResource<BalanceViewModelProtocol>?)
-}
-
-protocol StakingRedeemPresenterProtocol: AnyObject {
-    func setup()
-    func confirm()
-    func selectAccount()
-}
-
 protocol StakingRedeemInteractorInputProtocol: AnyObject {
     func setup()
     func submitForStash(_ stashAddress: AccountAddress)
@@ -31,9 +19,4 @@ protocol StakingRedeemInteractorOutputProtocol: AnyObject {
     func didReceiveActiveEra(result: Result<ActiveEraInfo?, Error>)
 
     func didSubmitRedeeming(result: Result<String, Error>)
-}
-
-protocol StakingRedeemWireframeProtocol: AlertPresentable, ErrorPresentable,
-    StakingErrorPresentable, AddressOptionsPresentable {
-    func complete(from view: StakingRedeemViewProtocol?)
 }
