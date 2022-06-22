@@ -1,17 +1,5 @@
 import SoraFoundation
 
-protocol StakingRewardDestConfirmViewProtocol: ControllerBackedProtocol, Localizable, LoadableViewProtocol {
-    func didReceiveConfirmation(viewModel: StakingRewardDestConfirmViewModel)
-    func didReceiveFee(viewModel: LocalizableResource<BalanceViewModelProtocol>?)
-}
-
-protocol StakingRewardDestConfirmPresenterProtocol: AnyObject {
-    func setup()
-    func confirm()
-    func presentSenderAccountOptions()
-    func presentPayoutAccountOptions()
-}
-
 protocol StakingRewardDestConfirmInteractorInputProtocol: AnyObject {
     func setup()
     func estimateFee(for rewardDestination: RewardDestination<AccountAddress>, stashItem: StashItem)
@@ -25,9 +13,4 @@ protocol StakingRewardDestConfirmInteractorOutputProtocol: AnyObject {
     func didReceiveController(result: Result<MetaChainAccountResponse?, Error>)
     func didReceiveAccountInfo(result: Result<AccountInfo?, Error>)
     func didSubmitRewardDest(result: Result<String, Error>)
-}
-
-protocol StakingRewardDestConfirmWireframeProtocol: AlertPresentable, ErrorPresentable,
-    StakingErrorPresentable, AddressOptionsPresentable {
-    func complete(from view: StakingRewardDestConfirmViewProtocol?)
 }

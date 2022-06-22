@@ -2,20 +2,6 @@ import Foundation
 import SoraFoundation
 import BigInt
 
-protocol SelectValidatorsConfirmViewProtocol: ControllerBackedProtocol, Localizable, LoadableViewProtocol {
-    func didReceive(confirmationViewModel: SelectValidatorsConfirmViewModel)
-    func didReceive(hintsViewModel: LocalizableResource<[String]>)
-    func didReceive(amountViewModel: LocalizableResource<BalanceViewModelProtocol>?)
-    func didReceive(feeViewModel: LocalizableResource<BalanceViewModelProtocol>?)
-}
-
-protocol SelectValidatorsConfirmPresenterProtocol: AnyObject {
-    func setup()
-    func selectWalletAccount()
-    func selectPayoutAccount()
-    func proceed()
-}
-
 protocol SelectValidatorsConfirmInteractorInputProtocol: AnyObject {
     func setup()
     func submitNomination()
@@ -37,9 +23,4 @@ protocol SelectValidatorsConfirmInteractorOutputProtocol: AnyObject {
 
     func didReceive(paymentInfo: RuntimeDispatchInfo)
     func didReceive(feeError: Error)
-}
-
-protocol SelectValidatorsConfirmWireframeProtocol: AlertPresentable, ErrorPresentable,
-    AddressOptionsPresentable, StakingErrorPresentable {
-    func complete(from view: SelectValidatorsConfirmViewProtocol?)
 }

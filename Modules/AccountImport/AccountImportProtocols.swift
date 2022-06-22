@@ -1,22 +1,6 @@
 import IrohaCrypto
 import SoraFoundation
 
-protocol AccountImportViewProtocol: ControllerBackedProtocol {
-    func setSource(type: SecretSource)
-    func setSource(viewModel: InputViewModelProtocol)
-    func setName(viewModel: InputViewModelProtocol?)
-    func setPassword(viewModel: InputViewModelProtocol)
-    func setUploadWarning(message: String)
-    func setShouldShowAdvancedSettings(_ shouldShow: Bool)
-}
-
-protocol AccountImportPresenterProtocol: AnyObject {
-    func setup()
-    func activateUpload()
-    func activateAdvancedSettings()
-    func proceed()
-}
-
 protocol AccountImportInteractorInputProtocol: AnyObject {
     func setup()
     func importAccountWithMnemonic(request: MetaAccountImportMnemonicRequest)
@@ -49,23 +33,4 @@ protocol AccountImportInteractorOutputProtocol: AnyObject {
     func didCompleteAccountImport()
     func didReceiveAccountImport(error: Error)
     func didSuggestKeystore(text: String, preferredInfo: MetaAccountImportPreferredInfo?)
-}
-
-protocol BaseAccountImportWireframeProtocol {
-    func showModifiableAdvancedSettings(
-        from view: AccountImportViewProtocol?,
-        secretSource: SecretSource,
-        settings: AdvancedWalletSettings,
-        delegate: AdvancedWalletSettingsDelegate
-    )
-
-    func showReadonlyAdvancedSettings(
-        from view: AccountImportViewProtocol?,
-        secretSource: SecretSource,
-        settings: AdvancedWalletSettings
-    )
-}
-
-protocol AccountImportWireframeProtocol: BaseAccountImportWireframeProtocol, AlertPresentable, ErrorPresentable {
-    func proceed(from view: AccountImportViewProtocol?)
 }
