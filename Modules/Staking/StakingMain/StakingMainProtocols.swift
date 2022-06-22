@@ -3,29 +3,6 @@ import SoraFoundation
 import CommonWallet
 import BigInt
 
-protocol StakingMainViewProtocol: ControllerBackedProtocol, Localizable {
-    func didReceive(viewModel: StakingMainViewModel)
-    func didRecieveNetworkStakingInfo(viewModel: LocalizableResource<NetworkStakingInfoViewModel>?)
-    func didReceiveStakingState(viewModel: StakingViewState)
-    func expandNetworkInfoView(_ isExpanded: Bool)
-}
-
-protocol StakingMainPresenterProtocol: AnyObject {
-    func setup()
-    func performAssetSelection()
-    func performMainAction()
-    func performAccountAction()
-    func performRewardInfoAction()
-    func performChangeValidatorsAction()
-    func performSetupValidatorsForBondedAction()
-    func performStakeMoreAction()
-    func performRedeemAction()
-    func performRebondAction()
-    func performAnalyticsAction()
-    func networkInfoViewDidChangeExpansion(isExpanded: Bool)
-    func performManageAction(_ action: StakingManageOption)
-}
-
 protocol StakingMainInteractorInputProtocol: AnyObject {
     func setup()
     func saveNetworkInfoViewExpansion(isExpanded: Bool)
@@ -67,40 +44,4 @@ protocol StakingMainInteractorOutputProtocol: AnyObject {
 
     func didReceiveAccount(_ account: MetaChainAccountResponse?, for accountId: AccountId)
     func networkInfoViewExpansion(isExpanded: Bool)
-}
-
-protocol StakingMainWireframeProtocol: AlertPresentable, ErrorPresentable, StakingErrorPresentable {
-    func showSetupAmount(from view: StakingMainViewProtocol?)
-
-    func proceedToSelectValidatorsStart(
-        from view: StakingMainViewProtocol?,
-        existingBonding: ExistingBonding
-    )
-
-    func showRewardDetails(from view: ControllerBackedProtocol?, maxReward: Decimal, avgReward: Decimal)
-
-    func showRewardPayoutsForNominator(from view: ControllerBackedProtocol?, stashAddress: AccountAddress)
-    func showRewardPayoutsForValidator(from view: ControllerBackedProtocol?, stashAddress: AccountAddress)
-    func showNominatorValidators(from view: ControllerBackedProtocol?)
-    func showRewardDestination(from view: ControllerBackedProtocol?)
-    func showControllerAccount(from view: ControllerBackedProtocol?)
-
-    func showAccountsSelection(from view: StakingMainViewProtocol?)
-    func showBondMore(from view: ControllerBackedProtocol?)
-    func showUnbond(from view: ControllerBackedProtocol?)
-    func showRedeem(from view: ControllerBackedProtocol?)
-    func showRebond(from view: ControllerBackedProtocol?, option: StakingRebondOption)
-    func showAnalytics(from view: ControllerBackedProtocol?, mode: AnalyticsContainerViewMode)
-
-    func showYourValidatorInfo(_ stashAddress: AccountAddress, from view: ControllerBackedProtocol?)
-
-    func showChainAssetSelection(
-        from view: StakingMainViewProtocol?,
-        selectedChainAssetId: ChainAssetId?,
-        delegate: AssetSelectionDelegate
-    )
-}
-
-protocol StakingMainViewFactoryProtocol: AnyObject {
-    static func createView() -> StakingMainViewProtocol?
 }

@@ -3,22 +3,6 @@ import SoraFoundation
 import CommonWallet
 import BigInt
 
-protocol StakingUnbondSetupViewProtocol: ControllerBackedProtocol, Localizable {
-    func didReceiveAsset(viewModel: LocalizableResource<AssetBalanceViewModelProtocol>)
-    func didReceiveFee(viewModel: LocalizableResource<BalanceViewModelProtocol>?)
-    func didReceiveInput(viewModel: LocalizableResource<AmountInputViewModelProtocol>)
-    func didReceiveTransferable(viewModel: LocalizableResource<BalanceViewModelProtocol>?)
-    func didReceiveBonding(duration: LocalizableResource<String>)
-}
-
-protocol StakingUnbondSetupPresenterProtocol: AnyObject {
-    func setup()
-    func selectAmountPercentage(_ percentage: Float)
-    func updateAmount(_ newValue: Decimal)
-    func proceed()
-    func close()
-}
-
 protocol StakingUnbondSetupInteractorInputProtocol: AnyObject {
     func setup()
     func estimateFee()
@@ -34,10 +18,4 @@ protocol StakingUnbondSetupInteractorOutputProtocol: AnyObject {
     func didReceiveController(result: Result<ChainAccountResponse?, Error>)
     func didReceiveStashItem(result: Result<StashItem?, Error>)
     func didReceiveStakingDuration(result: Result<StakingDuration, Error>)
-}
-
-protocol StakingUnbondSetupWireframeProtocol: AlertPresentable, ErrorPresentable,
-    StakingErrorPresentable {
-    func close(view: StakingUnbondSetupViewProtocol?)
-    func proceed(view: StakingUnbondSetupViewProtocol?, amount: Decimal)
 }
