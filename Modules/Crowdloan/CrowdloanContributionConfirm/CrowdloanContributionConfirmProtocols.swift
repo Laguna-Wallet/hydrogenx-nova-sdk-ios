@@ -1,15 +1,6 @@
 import SoraFoundation
 import BigInt
 
-protocol CrowdloanContributionConfirmViewProtocol: ControllerBackedProtocol, Localizable, LoadableViewProtocol {
-    func didReceiveAsset(viewModel: AssetBalanceViewModelProtocol)
-    func didReceiveFee(viewModel: BalanceViewModelProtocol?)
-    func didReceiveCrowdloan(viewModel: CrowdloanContributeConfirmViewModel)
-    func didReceiveEstimatedReward(viewModel: String?)
-    func didReceiveBonus(viewModel: String?)
-    func didReceiveRewardDestination(viewModel: CrowdloanRewardDestinationVM)
-}
-
 protocol CrowdloanContributionConfirmPresenterProtocol: AnyObject {
     func setup()
     func confirm()
@@ -26,9 +17,4 @@ protocol CrowdloanContributionConfirmInteractorOutputProtocol: CrowdloanContribu
     func didSubmitContribution(result: Result<String, Error>)
     func didReceiveDisplayAddress(result: Result<DisplayAddress, Error>)
     func didReceiveRewardDestinationAddress(_ address: AccountAddress)
-}
-
-protocol CrowdloanContributionConfirmWireframeProtocol: AlertPresentable, ErrorPresentable,
-    CrowdloanErrorPresentable, AddressOptionsPresentable {
-    func complete(on view: CrowdloanContributionConfirmViewProtocol?)
 }
