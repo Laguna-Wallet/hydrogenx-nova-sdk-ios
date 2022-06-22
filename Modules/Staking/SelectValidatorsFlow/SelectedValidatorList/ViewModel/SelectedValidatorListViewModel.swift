@@ -8,9 +8,3 @@ struct SelectedValidatorCellViewModel {
     let shouldShowWarning: Bool
     let shouldShowError: Bool
 }
-
-struct SelectedValidatorListViewModel {
-    var headerViewModel: TitleWithSubtitleViewModel
-    var cellViewModels: [SelectedValidatorCellViewModel]
-    var limitIsExceeded: Bool
-}
