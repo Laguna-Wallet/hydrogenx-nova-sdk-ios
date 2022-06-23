@@ -23,12 +23,6 @@ protocol ValidatorInfoProtocol {
     var blocked: Bool { get }
 }
 
-// MARK: - View
-
-protocol ValidatorInfoViewProtocol: ControllerBackedProtocol, Localizable {
-    func didRecieve(state: ValidatorInfoState)
-}
-
 // MARK: - Interactor
 
 protocol ValidatorInfoInteractorInputProtocol: AnyObject {
@@ -36,32 +30,3 @@ protocol ValidatorInfoInteractorInputProtocol: AnyObject {
     func reload()
 }
 
-// MARK: - Presenter
-
-protocol ValidatorInfoInteractorOutputProtocol: AnyObject {
-    func didReceivePriceData(result: Result<PriceData?, Error>)
-    func didStartLoadingValidatorInfo()
-    func didReceiveValidatorInfo(result: Result<ValidatorInfoProtocol?, Error>)
-}
-
-protocol ValidatorInfoPresenterProtocol: AnyObject {
-    func setup()
-    func reload()
-
-    func presentAccountOptions()
-    func presentTotalStake()
-    func presentIdentityItem(_ value: ValidatorInfoViewModel.IdentityItemValue)
-}
-
-// MARK: - Router
-
-protocol ValidatorInfoWireframeProtocol: WebPresentable,
-    EmailPresentable,
-    AlertPresentable,
-    AddressOptionsPresentable,
-    ErrorPresentable {
-    func showStakingAmounts(
-        from view: ValidatorInfoViewProtocol?,
-        items: [LocalizableResource<StakingAmountViewModel>]
-    )
-}

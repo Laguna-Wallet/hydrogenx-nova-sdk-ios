@@ -9,9 +9,3 @@ struct ValidatorSearchCellViewModel {
     let shouldShowError: Bool
     var isSelected: Bool = false
 }
-
-struct ValidatorSearchViewModel {
-    var headerViewModel: TitleWithSubtitleViewModel?
-    var cellViewModels: [ValidatorSearchCellViewModel]
-    var differsFromInitial: Bool = false
-}

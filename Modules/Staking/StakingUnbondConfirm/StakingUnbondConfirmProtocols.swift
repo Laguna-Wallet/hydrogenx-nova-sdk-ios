@@ -2,20 +2,6 @@ import Foundation
 import SoraFoundation
 import BigInt
 
-protocol StakingUnbondConfirmViewProtocol: ControllerBackedProtocol, Localizable, LoadableViewProtocol {
-    func didReceiveConfirmation(viewModel: StakingUnbondConfirmViewModel)
-    func didReceiveAmount(viewModel: LocalizableResource<BalanceViewModelProtocol>)
-    func didReceiveFee(viewModel: LocalizableResource<BalanceViewModelProtocol>?)
-    func didReceiveBonding(duration: LocalizableResource<String>)
-    func didSetShouldResetRewardsDestination(value: Bool)
-}
-
-protocol StakingUnbondConfirmPresenterProtocol: AnyObject {
-    func setup()
-    func confirm()
-    func selectAccount()
-}
-
 protocol StakingUnbondConfirmInteractorInputProtocol: AnyObject {
     func setup()
     func submit(for amount: Decimal, resettingRewardDestination: Bool, chilling: Bool)
@@ -37,9 +23,4 @@ protocol StakingUnbondConfirmInteractorOutputProtocol: AnyObject {
     func didReceiveStakingDuration(result: Result<StakingDuration, Error>)
 
     func didSubmitUnbonding(result: Result<String, Error>)
-}
-
-protocol StakingUnbondConfirmWireframeProtocol: AlertPresentable, ErrorPresentable,
-    StakingErrorPresentable, AddressOptionsPresentable {
-    func complete(from view: StakingUnbondConfirmViewProtocol?)
 }

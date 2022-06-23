@@ -1,19 +1,6 @@
 import Foundation
 import SoraFoundation
 
-protocol SelectValidatorsStartViewProtocol: ControllerBackedProtocol, Localizable {
-    func didReceive(viewModel: SelectValidatorsStartViewModel)
-}
-
-protocol SelectValidatorsStartPresenterProtocol: AnyObject {
-    func setup()
-    func updateOnAppearance()
-
-    func selectRecommendedValidators()
-    func selectCustomValidators()
-    func selectLearnMore()
-}
-
 protocol SelectValidatorsStartInteractorInputProtocol: AnyObject {
     func setup()
 }
@@ -23,18 +10,3 @@ protocol SelectValidatorsStartInteractorOutputProtocol: AnyObject {
     func didReceiveMaxNominations(result: Result<Int, Error>)
 }
 
-protocol SelectValidatorsStartWireframeProtocol: WebPresentable, AlertPresentable, ErrorPresentable {
-    func proceedToCustomList(
-        from view: ControllerBackedProtocol?,
-        validatorList: [SelectedValidatorInfo],
-        recommendedValidatorList: [SelectedValidatorInfo],
-        selectedValidatorList: SharedList<SelectedValidatorInfo>,
-        maxTargets: Int
-    )
-
-    func proceedToRecommendedList(
-        from view: SelectValidatorsStartViewProtocol?,
-        validatorList: [SelectedValidatorInfo],
-        maxTargets: Int
-    )
-}

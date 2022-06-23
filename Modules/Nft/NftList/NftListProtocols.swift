@@ -1,20 +1,5 @@
 import RobinHood
 
-protocol NftListViewProtocol: ControllerBackedProtocol {
-    func didReceive(changes: [ListDifference<NftListViewModel>])
-    func didCompleteRefreshing()
-}
-
-protocol NftListPresenterProtocol: AnyObject {
-    func setup()
-    func refresh()
-
-    func numberOfItems() -> Int
-    func nft(at index: Int) -> NftListViewModel
-
-    func selectNft(at index: Int)
-}
-
 protocol NftListInteractorInputProtocol: AnyObject {
     func setup()
     func refresh()
@@ -27,6 +12,3 @@ protocol NftListInteractorOutputProtocol: AnyObject {
     func didReceive(error: Error)
 }
 
-protocol NftListWireframeProtocol: AlertPresentable, ErrorPresentable {
-    func showNftDetails(from view: NftListViewProtocol?, model: NftChainModel)
-}
