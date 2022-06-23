@@ -4,6 +4,16 @@ import IrohaCrypto
 import RobinHood
 import SoraKeystore
 
+enum AccountCreationError: Error {
+    case unsupportedNetwork
+    case invalidDerivationHardSoftNumericPassword
+    case invalidDerivationHardSoftPassword
+    case invalidDerivationHardPassword
+    case invalidDerivationHardSoftNumeric
+    case invalidDerivationHardSoft
+    case invalidDerivationHard
+}
+
 protocol MetaAccountOperationFactoryProtocol {
     func newMetaAccountOperation(request: MetaAccountCreationRequest, mnemonic: IRMnemonicProtocol)
         -> BaseOperation<MetaAccountModel>
