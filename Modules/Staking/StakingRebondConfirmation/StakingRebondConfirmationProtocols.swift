@@ -2,18 +2,6 @@ import Foundation
 import SoraFoundation
 import BigInt
 
-protocol StakingRebondConfirmationViewProtocol: ControllerBackedProtocol, Localizable, LoadableViewProtocol {
-    func didReceiveConfirmation(viewModel: StakingRebondConfirmationViewModel)
-    func didReceiveAmount(viewModel: LocalizableResource<BalanceViewModelProtocol>)
-    func didReceiveFee(viewModel: LocalizableResource<BalanceViewModelProtocol>?)
-}
-
-protocol StakingRebondConfirmationPresenterProtocol: AnyObject {
-    func setup()
-    func confirm()
-    func selectAccount()
-}
-
 protocol StakingRebondConfirmationInteractorInputProtocol: AnyObject {
     func setup()
     func submit(for amount: Decimal)
@@ -29,9 +17,4 @@ protocol StakingRebondConfirmationInteractorOutputProtocol: AnyObject {
     func didReceiveStashItem(result: Result<StashItem?, Error>)
 
     func didSubmitRebonding(result: Result<String, Error>)
-}
-
-protocol StakingRebondConfirmationWireframeProtocol: AlertPresentable, ErrorPresentable,
-    StakingErrorPresentable, AddressOptionsPresentable {
-    func complete(from view: StakingRebondConfirmationViewProtocol?)
 }

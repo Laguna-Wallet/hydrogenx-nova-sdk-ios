@@ -30,3 +30,8 @@ protocol ValidatorInfoInteractorInputProtocol: AnyObject {
     func reload()
 }
 
+protocol ValidatorInfoInteractorOutputProtocol: AnyObject {
+    func didReceivePriceData(result: Result<PriceData?, Error>)
+    func didStartLoadingValidatorInfo()
+    func didReceiveValidatorInfo(result: Result<ValidatorInfoProtocol?, Error>)
+}
