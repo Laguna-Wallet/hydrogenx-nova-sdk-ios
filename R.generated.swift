@@ -2522,8 +2522,20 @@ struct R: Rswift.Validatable {
       return R.nib.accountManagementViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func accountTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AccountTableViewCell? {
+      return R.nib.accountTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AccountTableViewCell
+    }
+
     static func assetDetailsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> AssetDetailsView? {
       return R.nib.assetDetailsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AssetDetailsView
+    }
+
+    static func detailsDisplayTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DetailsDisplayTableViewCell? {
+      return R.nib.detailsDisplayTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DetailsDisplayTableViewCell
+    }
+
+    static func iconWithTitleTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> IconWithTitleTableViewCell? {
+      return R.nib.iconWithTitleTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? IconWithTitleTableViewCell
     }
 
     static func modalPickerViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -2538,25 +2550,67 @@ struct R: Rswift.Validatable {
       return R.nib.pinSetupViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func purchaseProviderPickerTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PurchaseProviderPickerTableViewCell? {
+      return R.nib.purchaseProviderPickerTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PurchaseProviderPickerTableViewCell
+    }
+
     static func selectionListViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.selectionListViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func selectionSubtitleTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SelectionSubtitleTableViewCell? {
+      return R.nib.selectionSubtitleTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SelectionSubtitleTableViewCell
+    }
+
+    static func selectionTitleTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SelectionTitleTableViewCell? {
+      return R.nib.selectionTitleTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SelectionTitleTableViewCell
     }
 
     static func stakingMainViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.stakingMainViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func titleWithSubtitleTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TitleWithSubtitleTableViewCell? {
+      return R.nib.titleWithSubtitleTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TitleWithSubtitleTableViewCell
+    }
+
     static func walletAmountView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.walletAmountView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func walletCompoundDetailsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletCompoundDetailsView? {
+      return R.nib.walletCompoundDetailsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletCompoundDetailsView
     }
 
     static func walletManagementViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.walletManagementViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
+    static func walletSingleActionAccessoryView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletSingleActionAccessoryView? {
+      return R.nib.walletSingleActionAccessoryView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletSingleActionAccessoryView
+    }
+
+    static func walletTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletTableViewCell? {
+      return R.nib.walletTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletTableViewCell
+    }
+
     static func walletTokenView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.walletTokenView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `accountCellId`.
+    static let accountCellId: Rswift.ReuseIdentifier<AccountTableViewCell> = Rswift.ReuseIdentifier(identifier: "accountCellId")
+    /// Reuse identifier `selectionItemCellId`.
+    static let selectionItemCellId: Rswift.ReuseIdentifier<SelectionTitleTableViewCell> = Rswift.ReuseIdentifier(identifier: "selectionItemCellId")
+    /// Reuse identifier `selectionSubtitleCellId`.
+    static let selectionSubtitleCellId: Rswift.ReuseIdentifier<SelectionSubtitleTableViewCell> = Rswift.ReuseIdentifier(identifier: "selectionSubtitleCellId")
+    /// Reuse identifier `walletCellId`.
+    static let walletCellId: Rswift.ReuseIdentifier<WalletTableViewCell> = Rswift.ReuseIdentifier(identifier: "walletCellId")
 
     fileprivate init() {}
   }
@@ -17477,6 +17531,10 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "PurchaseProviderPickerTableViewCell"
 
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PurchaseProviderPickerTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PurchaseProviderPickerTableViewCell
+      }
+
       static func validate() throws {
         if UIKit.UIImage(named: "iconAboutArrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconAboutArrow' is used in nib 'PurchaseProviderPickerTableViewCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "iconMoonPay", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconMoonPay' is used in nib 'PurchaseProviderPickerTableViewCell', but couldn't be loaded.") }
@@ -17500,6 +17558,48 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _SelectionSubtitleTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = SelectionSubtitleTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "selectionSubtitleCellId"
+      let name = "SelectionSubtitleTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SelectionSubtitleTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SelectionSubtitleTableViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "iconCheckmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconCheckmark' is used in nib 'SelectionSubtitleTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "colorWhite", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'colorWhite' is used in nib 'SelectionSubtitleTableViewCell', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SelectionTitleTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = SelectionTitleTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "selectionItemCellId"
+      let name = "SelectionTitleTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SelectionTitleTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SelectionTitleTableViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "iconCheckmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconCheckmark' is used in nib 'SelectionTitleTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "colorWhite", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'colorWhite' is used in nib 'SelectionTitleTableViewCell', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _StakingMainViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "StakingMainViewController"
@@ -17514,6 +17614,10 @@ struct _R: Rswift.Validatable {
     struct _TitleWithSubtitleTableViewCell: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "TitleWithSubtitleTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TitleWithSubtitleTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TitleWithSubtitleTableViewCell
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "iconCheckmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconCheckmark' is used in nib 'TitleWithSubtitleTableViewCell', but couldn't be loaded.") }
@@ -17541,6 +17645,10 @@ struct _R: Rswift.Validatable {
     struct _WalletCompoundDetailsView: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "WalletCompoundDetailsView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletCompoundDetailsView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletCompoundDetailsView
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "iconCopy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconCopy' is used in nib 'WalletCompoundDetailsView', but couldn't be loaded.") }
@@ -17572,6 +17680,10 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "WalletSingleActionAccessoryView"
 
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletSingleActionAccessoryView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletSingleActionAccessoryView
+      }
+
       fileprivate init() {}
     }
 
@@ -17581,6 +17693,10 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let identifier = "walletCellId"
       let name = "WalletTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletTableViewCell
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "iconCheckmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'iconCheckmark' is used in nib 'WalletTableViewCell', but couldn't be loaded.") }
