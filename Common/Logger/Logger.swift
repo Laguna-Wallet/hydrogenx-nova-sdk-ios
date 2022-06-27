@@ -55,11 +55,12 @@ final class Logger {
     private init() {
         let destination = ConsoleDestination()
 
-        #if F_DEV
+        // MARK: - to do
+        //#if F_DEV
             destination.minLevel = .verbose
-        #else
-            destination.minLevel = .info
-        #endif
+        //#else
+            //destination.minLevel = .info
+        //#endif
 
         log.addDestination(destination)
     }
