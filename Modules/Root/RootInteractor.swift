@@ -85,7 +85,8 @@ extension RootInteractor: RootInteractorInputProtocol {
         setupTableViewsAppearance()
 
         setupURLHandlingService()
-        runMigrators()
+        //TEMPORARY COMMENTED:
+        //runMigrators()
 
         // TODO: Move to loading screen
         settings.setup(runningCompletionIn: .main) { result in
