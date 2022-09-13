@@ -18,7 +18,8 @@ extension PurchaseAggregator {
         return PurchaseAggregator(providers: purchaseProviders)
             .with(appName: config.purchaseAppName)
             .with(logoUrl: config.logoURL)
-            .with(colorCode: R.color.colorAccent()!.hexRGB)
+            //go
+            //.with(colorCode: R.color.colorAccent()!.hexRGB)
             .with(callbackUrl: config.purchaseRedirect)
     }
 }
