@@ -1,7 +1,7 @@
 import Foundation
 import IrohaCrypto
 
-enum ChainFormat {
+public enum ChainFormat {
     case ethereum
     case substrate(_ prefix: UInt16)
 }

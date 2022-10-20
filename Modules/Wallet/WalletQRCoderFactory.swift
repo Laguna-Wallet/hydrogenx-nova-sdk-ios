@@ -3,20 +3,20 @@ import CommonWallet
 import IrohaCrypto
 import SubstrateSdk
 
-final class WalletQREncoder: WalletQREncoderProtocol {
+public final class WalletQREncoder: WalletQREncoderProtocol {
     let username: String?
     let chainFormat: ChainFormat
     let publicKey: Data
 
     private lazy var substrateEncoder = SubstrateQREncoder()
 
-    init(chainFormat: ChainFormat, publicKey: Data, username: String?) {
+    public init(chainFormat: ChainFormat, publicKey: Data, username: String?) {
         self.chainFormat = chainFormat
         self.publicKey = publicKey
         self.username = username
     }
 
-    func encode(receiverInfo: ReceiveInfo) throws -> Data {
+    public func encode(receiverInfo: ReceiveInfo) throws -> Data {
         let accountId = try Data(hexString: receiverInfo.accountId)
 
         let address = try accountId.toAddress(using: chainFormat)
